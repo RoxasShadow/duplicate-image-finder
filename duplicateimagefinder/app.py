@@ -106,6 +106,7 @@ class ImageUtils(object):
                 image = Image.open(image)
             except IOError:
                 return None
+        print filename
         image = image.resize((8, 9), Image.ANTIALIAS).convert('L')
         avg = reduce(lambda x, y: x + y, image.getdata()) / 64.
         avhash = reduce(lambda x, (y, z): x | (z << y),
